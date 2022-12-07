@@ -2,7 +2,7 @@ const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
 const { preload } = require('./src/controllers/publication/getPublication.js');
 const { Publication } = require('./src/db.js');
-const { PORT } = process.env;
+const { PORT } = process.env || 3001;
 // Syncing all the models at once.
 conn.sync({ force: true }).then(async () => {
 	const data = await Publication.findAll();
